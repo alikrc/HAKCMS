@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HAKCMS.Model.ViewModel.UserViewModel>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            <a href='@Url.Action("Edit", new { id = item.Id })' class="btn btn-app">
+                <i class="fa fa-edit"></i>
+                Edit
+            </a>
+            <a href='@Url.Action("Details", new { id = item.Id })' class="btn btn-app">
+                <i class="fa fa-list-ul"></i>
+                Details
+            </a>
+            <div class="form-group">
+                @using (Ajax.BeginForm("Delete", new { id = item.Id },
+                                        new AjaxOptions()
+                                        {
+                                            HttpMethod = "Post",
+                                            Confirm = "Are you sure to delete this?",
+                                            //UpdateTargetId = "DeleteJsonResult",
+                                            OnSuccess = "AjaxDeleteSuccess"
+                                        }))
+                {
+                    @Html.AntiForgeryToken()
+                    <button class="btn btn-app" type="submit">
+                        <i class="fa fa-eraser"></i>
+                        Delete
+                    </button>
+                }
+            </div>
+        </td>
+    </tr>
+}
+
+
+@*@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href='@Url.Action("Edit", new { id = item.Id })' class="btn btn-app">
+                    <i class="fa fa-edit"></i>
+                    Edit
+                </a>
+
+                @using (Ajax.BeginForm("Delete", new { id = item.Id }, new AjaxOptions() { HttpMethod = "Post", Confirm = "Are you sure to delete this?", UpdateTargetId = "DeleteJsonResult", OnSuccess = "AjaxDelete" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <button class="btn btn-app" type="submit">
+                        <i class="fa fa-eraser"></i>
+                        Delete
+                    </button>
+                }
+            </td>
+        </tr>
+    }*@

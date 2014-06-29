@@ -1,0 +1,239 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @*<title>Yönetim Paneli</title>*@
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <link href="/Shared/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 8]><link href="css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    @Html.Partial("_LoginPartialAdmin")
+
+    @*<!-- Fixed top -->
+    <div id="top">
+        <div class="fixed">
+            <a href="/Admin" title="" class="logo">
+                <img width="80" src="~/Shared/images/MedyaModLogo.png" alt="logo" />
+            </a>
+            <ul class="top-menu">
+                <li><a class="fullview"></a></li>
+                <li><a class="showmenu"></a></li>
+                <li><a href="#" title="" class="messages"><i class="new-message"></i></a></li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+    </div>
+    <!-- /fixed top -->*@
+
+    <!-- Content container -->
+    <div id="container">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="sidebar-tabs">
+                <ul class="tabs-nav two-items">
+                    <li><a href="#general" title=""><i class="icon-reorder"></i></a></li>
+                    <li><a href="#stuff" title=""><i class="icon-cogs"></i></a></li>
+                </ul>
+                <div id="general">
+                    <!-- Main navigation -->
+                    <ul class="navigation widget">
+                        <li><a href="/Admin" title=""><i class="icon-home"></i>Anasayfa</a></li>
+                        <li>
+                            <a href="#" title="" class="expand"><i class="icon-reorder"></i>Form elements<strong>3</strong></a>
+                            <ul>
+                                <li><a href="forms.html" title="">Form components</a></li>
+                                <li><a href="wysiwyg.html" title="">WYSIWYG editor</a></li>
+                                <li><a href="form_wizards.html" title="">Wizards</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a href="#" title="" class="expand" id="current"><i class="icon-tasks"></i>Components<strong>4</strong></a>
+                            <ul>
+                                <li><a href="components.html" title="">Content components</a></li>
+                                <li><a href="content_grid.html" title="">Content grid</a></li>
+                                <li><a href="blank.html" title="" class="current">Blank page</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- /main navigation -->
+                </div>
+                <div id="stuff">
+                    <!-- Action buttons -->
+                    <div class="widget">
+                        <button class="btn btn-block btn-danger">Action button</button>
+                    </div>
+                    <!-- /action buttons -->
+                </div>
+            </div>
+        </div>
+        <!-- /sidebar -->
+        <!-- Content -->
+        <div id="content">
+            <!-- Content wrapper -->
+            <div class="wrapper">
+                <!-- Breadcrumbs line -->
+                <div class="crumbs">
+                    <ul id="breadcrumbs" class="breadcrumb">
+                        <li><a href="index-2.html">Dashboard</a></li>
+                        <li class="active"><a href="calendar.html" title="">Calendar</a></li>
+                    </ul>
+
+                    <ul class="alt-buttons">
+                        <li><a href="#" title=""><i class="icon-signal"></i><span>Stats</span></a></li>
+                        <li><a href="#" title=""><i class="icon-comments"></i><span>Messages</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" title="" data-toggle="dropdown"><i class="icon-tasks"></i><span>Tasks</span> <strong>(+16)</strong></a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#" title=""><i class="icon-plus"></i>Add new task</a></li>
+                                <li><a href="#" title=""><i class="icon-reorder"></i>Statement</a></li>
+                                <li><a href="#" title=""><i class="icon-cog"></i>Settings</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /breadcrumbs line -->
+                <!-- Page header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h5>@ViewBag.Title</h5>
+                        @*<span>Only necessary js and html</span>*@
+                    </div>
+                </div>
+                <!-- /page header -->
+                @RenderBody()
+
+            </div>
+            <!-- /content wrapper -->
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /content container -->
+    <!-- Footer -->
+    <div id="footer">
+        <div class="copyrights">&copy;  Brought to you by Eugene Kopyov.</div>
+        <ul class="footer-links">
+            <li><a href="#" title=""><i class="icon-cogs"></i>Contact admin</a></li>
+            <li><a href="#" title=""><i class="icon-screenshot"></i>Report bug</a></li>
+        </ul>
+    </div>
+    <!-- /footer -->
+    @*<div class="form-horizontal">
+            <div>
+                <!-- Fixed top -->
+                <div id="top">
+                    <div class="fixed">
+                        @{
+                            var url = "";//ViewBag.authorurl
+                        }
+                        <a href='/' target="_blank" class="logo">
+                            <img src="/Shared/images/yonetim_author.fw.png" style="height: 28px;" alt="" />
+                        </a>
+                        <ul class="top-menu">
+                            <li><a class="user-menu fullview" data-toggle="dropdown">Tam Ekran </a></li>
+                            <li><a class="user-menu" href="/admin"><i class="fam-house"></i>Ana Sayfa   </a></li>
+                            @Html.Partial("_LoginPartial")
+                        </ul>
+                    </div>
+                </div>
+                <!-- /fixed top -->
+                <!-- Content container -->
+                <div id="container">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+
+                        <div class="sidebar-tabs">
+                            <ul class="tabs-nav two-items" style="display: none !important">
+                                <li><a href="#general"><i class="icon-reorder"></i></a></li>
+                                <li><a href="#stuff"><i class="icon-cogs"></i></a></li>
+                            </ul>
+
+                            <div id="general">
+
+                                <!-- Sidebar user -->
+                                <div class="sidebar-user widget">
+                                    <div class="navbar">
+                                        <div class="navbar-inner">
+                                            <h6>Yönetim Paneli</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Main navigation -->
+                                <ul class="navigation widget"></ul>
+                                @{Html.Partial("_RightMenu");}
+                                <!-- /main navigation -->
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /sidebar -->
+                    <!-- Content -->
+                    <div id="content">
+
+                        <!-- Content wrapper -->
+                        @RenderBody()
+                        <!-- /content wrapper -->
+
+                    </div>
+                    <!-- /content -->
+
+                </div>
+                <!-- /content container -->
+                <!-- Footer -->
+                <div id="footer">
+                    <div class="copyrights">
+                        <a href='' target="_blank">
+                            <img src="/Shared/images/yonetim_author.fw.png" style="height: 28px;" alt="" />
+                        </a>&nbsp; &copy; Copyright  2014
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="icon-cogs"></i>Yardım & Destek</a></li>
+                    </ul>
+                </div>
+                <!-- /footer -->
+
+
+            </div>
+        </div>*@
+
+
+
+
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/charts/excanvas.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/charts/jquery.flot.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/charts/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/charts/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.easytabs.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.collapsible.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/prettify.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.colorpicker.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/ui/jquery.fullcalendar.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/forms/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/forms/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/plugins/tables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Shared/js/functions/index.js"></script>
+    <script type="text/javascript" src="/Shared/js/charts/graph.js"></script>
+    <script type="text/javascript" src="/Shared/js/charts/chart1.js"></script>
+    <script type="text/javascript" src="/Shared/js/charts/chart2.js"></script>
+    <script type="text/javascript" src="/Shared/js/charts/chart3.js"></script>
+</body>
+
+</html>

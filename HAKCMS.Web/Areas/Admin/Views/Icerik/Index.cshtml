@@ -1,0 +1,160 @@
+﻿@model IEnumerable<HAKCMS.Model.TBL_Icerik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.baslikTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.baslikEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anahtarTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anahtarEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklamaTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklamaEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.icerikTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.icerikEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.galeriID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dokumanID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.videoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sayfaURLTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sayfaURLEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.durum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.showb)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.adTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.baslikTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.baslikEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anahtarTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anahtarEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aciklamaTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aciklamaEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.icerikTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.icerikEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.galeriID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dokumanID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.videoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sayfaURLTR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sayfaURLEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Statik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.durum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.showm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.showt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.showb)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

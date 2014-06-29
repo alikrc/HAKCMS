@@ -1,0 +1,77 @@
+﻿@model HAKCMS.Model.ViewModel.UserViewModel
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    User
+                </h3>
+            </div><!-- /.box-header -->
+
+            <div class="box-body table-responsive">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @foreach (var item in Model.Roles)
+                                {
+                                    <div>
+                                        <label>
+                                            <input type="checkbox" class="minimal"
+                                                   name="SelectedRoleIds"
+                                                   @(Model.SelectedRoleIds.Contains(item.Id) ? "checked" : "")
+                                                   value="@item.Id" />
+                                            @Html.Label(item.Name, new { name = "Roles", value = item.Name })
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+
+                      @Html.Partial("_SaveOrCancelButtons")
+
+                    </div>
+                }
+
+            </div>
+
+
+
+        </div><!-- /.box -->
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

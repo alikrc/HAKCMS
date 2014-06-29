@@ -1,0 +1,12 @@
+﻿
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+        function AjaxDeleteSuccess(jsonResult) {
+            $.get("@Url.Action("Index")", function (partialHtml) {
+                $("#example2").find('tbody').html(partialHtml);
+            });
+
+            noty({ text: 'success', layout: 'bottomRight', type: 'success', timeout: '3000' });
+        }
+
+</script>

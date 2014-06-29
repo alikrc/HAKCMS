@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <!-- Fixed top -->
+    <div id="top">
+        <div class="fixed">
+            <a href="/Admin" title="" class="logo">
+                <img width="80" src="~/Shared/images/" alt="Logo" />
+            </a>
+            <ul class="top-menu">
+                <li><a class="fullview"></a></li>
+                <li><a class="showmenu"></a></li>
+                <li><a href="#" title="" class="messages"><i class="new-message"></i></a></li>
+
+                <li class="dropdown">
+
+                    <a class="user-menu" data-toggle="dropdown">
+
+                        <span>Howdy, @Html.Encode(User.Identity.Name)! <b class="caret"></b></span>
+
+                        @*<a href="javascript:document.getElementById('logoutForm').submit()">Çıkış Yap</a>*@
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("Manage", "Account", new { area=""})' title="Manage"><i class="icon-user"></i>Profile</a></li>
+                        @*@Html.ActionLink("", actionName: "Manage", controllerName: "Account", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "user-menu" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" title="">
+                                    <i class="icon-remove"></i>Logout
+                                </a>
+                            }
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /fixed top -->
+
+}
+else
+{
+    @Html.ActionLink("Log in", "Login", "Account", null, new Dictionary<string, object> { { "id", "loginLink" }, { "class", "user-menu" }, { "data-toggle", "dropdown" } })
+
+}

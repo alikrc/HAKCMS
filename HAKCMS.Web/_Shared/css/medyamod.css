@@ -1,0 +1,11 @@
+﻿.sabitAlan {
+    margin-bottom: 0;
+}
+
+    .sabitAlan .well {
+        border-bottom: none;
+    }
+
+.tab-pane .well {
+    border-top: none;
+}

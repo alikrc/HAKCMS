@@ -1,0 +1,9 @@
+﻿
+@if (TempData["message"] != null)
+{
+    var msg = TempData["message"];
+
+    <script>
+            noty({ text: '@msg', layout: 'bottomRight', type: 'success', timeout: '3000' });
+    </script>
+}
